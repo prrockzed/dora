@@ -66,7 +66,7 @@ const Index = () => {
       <Works />
       {/* Works Section End */}
       {/* Feedback Section Start */}
-      <Feedback />
+      <Feedback userData={data} />
       {/* Feedback Section End */}
       {/* Blog Section Start */}
       <Blog />

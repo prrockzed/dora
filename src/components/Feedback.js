@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { doraSlider } from "../sliderProps";
 
-const Feedback = () => {
+const Feedback = ({ userData }) => {
+  const clientData = userData.data.testimonials;
   return (
     <section className="feedback-section">
       <div className="container">
@@ -36,210 +37,60 @@ const Feedback = () => {
           className="swiper feedback-items-cont"
         >
           <div className="swiper-wrapper feedback-items wow fadeInUp">
-            {/* 01 feedback item start */}
-            <SwiperSlide className="swiper-slide feedback-item">
-              <div className="feedback-active-img">
-                <img src="images/testimonials/1.png" alt="dora_img" />
-              </div>
-              <div className="feedback-info-cont">
-                <div className="feedback-title-cont">
-                  <h3>Awesome Service!</h3>
-                  <div className="feedback-title-element">
-                    <img
-                      src="./images/bg_elements/feedback-element.svg"
-                      alt="dora_img"
-                    />
-                  </div>
+            {clientData.map((client, i) => (
+              <SwiperSlide
+                className="swiper-slide feedback-item"
+                key={client._id}
+              >
+                <div className="feedback-active-img">
+                  <img
+                    src={client.image.url}
+                    alt="dora_img"
+                    key={client.image.public_id}
+                  />
                 </div>
-                <p className="feedback-txt">
-                  Loved the template design, documentation, customizability and
-                  the customer support from Marketify team! I am a noob in
-                  programming with very little knowledge about coding.
-                </p>
-                <div className="feedback-person-info">
-                  <div className="feedback-person-img">
-                    <img src="images/testimonials/1.png" alt="dora_img" />
+                <div className="feedback-info-cont">
+                  <div className="feedback-title-cont">
+                    <h3>Awesome Service!</h3>
+                    <div className="feedback-title-element">
+                      <img
+                        src="./images/bg_elements/feedback-element.svg"
+                        alt="dora_img"
+                      />
+                    </div>
                   </div>
-                  <div className="feedback-person-name">
-                    <h4>Beseie Cooper</h4>
-                    <p>Web Designer</p>
-                    <div className="feedback-star-cont">
-                      <ul>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                      </ul>
+                  <p className="feedback-txt">{client.review}</p>
+                  <div className="feedback-person-info">
+                    <div className="feedback-person-img">
+                      <img src={client.image.url} alt="dora_img" />
+                    </div>
+                    <div className="feedback-person-name">
+                      <h4>{client.name}</h4>
+                      <p>{client.position}</p>
+                      <div className="feedback-star-cont">
+                        <ul>
+                          <li>
+                            <img src="images/icons/Star.svg" alt="dora_img" />
+                          </li>
+                          <li>
+                            <img src="images/icons/Star.svg" alt="dora_img" />
+                          </li>
+                          <li>
+                            <img src="images/icons/Star.svg" alt="dora_img" />
+                          </li>
+                          <li>
+                            <img src="images/icons/Star.svg" alt="dora_img" />
+                          </li>
+                          <li>
+                            <img src="images/icons/Star.svg" alt="dora_img" />
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-            {/* 01 feedback item end */}
-            {/* 02 feedback item start */}
-            <SwiperSlide className="swiper-slide feedback-item">
-              <div className="feedback-active-img">
-                <img src="images/testimonials/2.png" alt="dora_img" />
-              </div>
-              <div className="feedback-info-cont">
-                <div className="feedback-title-cont">
-                  <h3>Awesome Service!</h3>
-                  <div className="feedback-title-element">
-                    <img
-                      src="./images/bg_elements/feedback-element.svg"
-                      alt="dora_img"
-                    />
-                  </div>
-                </div>
-                <p className="feedback-txt">
-                  Loved the template design, documentation, customizability and
-                  the customer support from Marketify team! I am a noob in
-                  programming with very little knowledge about coding.
-                </p>
-                <div className="feedback-person-info">
-                  <div className="feedback-person-img">
-                    <img src="images/testimonials/2.png" alt="dora_img" />
-                  </div>
-                  <div className="feedback-person-name">
-                    <h4>Beseie Cooper</h4>
-                    <p>Web Designer</p>
-                    <div className="feedback-star-cont">
-                      <ul>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            {/* 02 feedback item end */}
-            {/* 03 feedback item start */}
-            <SwiperSlide className="swiper-slide feedback-item">
-              <div className="feedback-active-img">
-                <img src="images/testimonials/1.png" alt="dora_img" />
-              </div>
-              <div className="feedback-info-cont">
-                <div className="feedback-title-cont">
-                  <h3>Awesome Service!</h3>
-                  <div className="feedback-title-element">
-                    <img
-                      src="./images/bg_elements/feedback-element.svg"
-                      alt="dora_img"
-                    />
-                  </div>
-                </div>
-                <p className="feedback-txt">
-                  Loved the template design, documentation, customizability and
-                  the customer support from Marketify team! I am a noob in
-                  programming with very little knowledge about coding.
-                </p>
-                <div className="feedback-person-info">
-                  <div className="feedback-person-img">
-                    <img src="images/testimonials/1.png" alt="dora_img" />
-                  </div>
-                  <div className="feedback-person-name">
-                    <h4>Beseie Cooper</h4>
-                    <p>Web Designer</p>
-                    <div className="feedback-star-cont">
-                      <ul>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            {/* 03 feedback item end */}
-            {/* 04 feedback item start */}
-            <SwiperSlide className="swiper-slide feedback-item">
-              <div className="feedback-active-img">
-                <img src="images/testimonials/2.png" alt="dora_img" />
-              </div>
-              <div className="feedback-info-cont">
-                <div className="feedback-title-cont">
-                  <h3>Awesome Service!</h3>
-                  <div className="feedback-title-element">
-                    <img
-                      src="./images/bg_elements/feedback-element.svg"
-                      alt="dora_img"
-                    />
-                  </div>
-                </div>
-                <p className="feedback-txt">
-                  Loved the template design, documentation, customizability and
-                  the customer support from Marketify team! I am a noob in
-                  programming with very little knowledge about coding.
-                </p>
-                <div className="feedback-person-info">
-                  <div className="feedback-person-img">
-                    <img src="images/testimonials/2.png" alt="dora_img" />
-                  </div>
-                  <div className="feedback-person-name">
-                    <h4>Beseie Cooper</h4>
-                    <p>Web Designer</p>
-                    <div className="feedback-star-cont">
-                      <ul>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                        <li>
-                          <img src="images/icons/Star.svg" alt="dora_img" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            {/* 04 feedback item end */}
+              </SwiperSlide>
+            ))}
           </div>
         </Swiper>
       </div>
