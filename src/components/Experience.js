@@ -22,7 +22,15 @@ const Experience = ({ userData }) => {
           {[...Array(exp.length)].map((_, index) => (
             <div className="experience-item" key={exp[index]._id}>
               <div className="experience-info">
-                <p>{exp[index].name}</p>
+                <p>
+                  {exp[index].name}{" "}
+                  <img
+                    src={exp[index].image.url}
+                    alt="image"
+                    style={{ height: "0.8em", marginLeft: "0.5em" }}
+                    key={exp[index].image._id}
+                  />
+                </p>
                 <p>{exp[index].percentage}%</p>
               </div>
               <div
