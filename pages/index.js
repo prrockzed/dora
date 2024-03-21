@@ -17,6 +17,7 @@ import Cursor from "@/src/layout/Cursor";
 import PreLoader from "@/src/layout/PreLoader";
 import { dora } from "@/src/utils";
 import { Fragment, useContext, useEffect } from "react";
+import { DataContext } from "./api/DataContext";
 
 const Index = () => {
   useEffect(() => {
@@ -33,7 +34,11 @@ const Index = () => {
       }
     }
   }, []);
+
   const { blog, portfolio_modal } = useContext(DoraContext);
+  const data = useContext(DataContext);
+  console.log(data.data.about.name);
+
   return (
     <Fragment>
       {blog && <BlogPopup />}
