@@ -72,7 +72,7 @@ const Index = () => {
       <Blog />
       {/* Blog Section End */}
       {/* Contact Section Start */}
-      <Contact />
+      <Contact userData={data} />
       {/* Contact Section End */}
       {/* Copyright */}
       <Copyright />

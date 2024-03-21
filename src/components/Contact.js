@@ -1,7 +1,9 @@
 import emailjs from "emailjs-com";
 import { useState } from "react";
 
-const Contact = () => {
+const Contact = ({ userData }) => {
+  const socialHandle = userData.data.social_handles;
+
   const [mailData, setMailData] = useState({
     name: "",
     email: "",
@@ -36,11 +38,13 @@ const Contact = () => {
         );
     }
   };
+
   const clearError = () => {
     setTimeout(() => {
       setError(null);
     }, 2000);
   };
+
   return (
     <section className="contact-section" id="contact">
       <div className="container">
@@ -55,31 +59,18 @@ const Contact = () => {
               call between 9:00 a.m. and 8:00 p.m. ET, Monday through Friday
             </p>
             <ul className="contact-social wow fadeInUp">
-              <li>
-                <a href="#">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-instagram" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-twitter" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-dribbble" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-facebook-f" />
-                </a>
-              </li>
+              {socialHandle.map((socialMedia, index) => (
+                <li key={socialMedia._id}>
+                  <a href={socialMedia.url}>
+                    <img
+                      src={socialMedia.image.url}
+                      alt="social_media"
+                      key={socialMedia.image.public_id}
+                      style={{ height: "2em" }}
+                    />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           {/* Contact right */}
