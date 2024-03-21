@@ -1,16 +1,17 @@
-const Hero = () => {
+const Hero = ({ userData }) => {
+  // console.log(userData.data.about.name);
+  const about = userData.data.about;
+
   return (
     <section className="hero-section" id="home">
       <div className="container">
         <div className="row">
           <div className="hero-text wow fadeInUp">
             <span>Hi, I'm</span>
-            <h1>Mary Hardy</h1>
-            <h3>Digital marketing expert</h3>
-            <p>
-              Shot what able cold new the see hold. Friendly as an betrayed
-              formerly he. Morning because as to society behaved moments
-            </p>
+            <h1>{about.name}</h1>
+            <h3>{about.title}</h3>
+            <p>{about.subTitle}</p>
+            <p>{about.description}</p>
             <div className="hero-btn-container">
               <a href="#contact" className="btn primary-btn">
                 Download CV
@@ -22,7 +23,7 @@ const Hero = () => {
           </div>
           {/* Hero Image */}
           <div className="hero-img">
-            <img src="images/hero-person-img.png" alt="dora_img" />
+            <img src={about.avatar.url} alt="dora_img" />
           </div>
         </div>
       </div>

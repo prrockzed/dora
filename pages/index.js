@@ -37,7 +37,7 @@ const Index = () => {
 
   const { blog, portfolio_modal } = useContext(DoraContext);
   const data = useContext(DataContext);
-  console.log(data.data.about.name);
+  // console.log(data.data.about.name);
 
   return (
     <Fragment>
@@ -51,7 +51,7 @@ const Index = () => {
       <Header />
       {/* Header End */}
       {/* Home Section Start */}
-      <Hero />
+      <Hero userData={data} />
       {/* Home Section End */}
       {/* Support Section Start */}
       <Support />
