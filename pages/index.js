@@ -54,13 +54,13 @@ const Index = () => {
       <Hero userData={data} />
       {/* Home Section End */}
       {/* Support Section Start */}
-      <Support />
+      <Support userData={data} />
       {/* Support Section End */}
       {/* Service Section Start */}
       <Service />
       {/* Service Section End */}
       {/* Experience Section Start */}
-      <Experience />
+      <Experience userData={data} />
       {/* Experience Section End */}
       {/* Works Section Start */}
       <Works />
