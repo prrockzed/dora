@@ -57,7 +57,7 @@ const Index = () => {
       <Support userData={data} />
       {/* Support Section End */}
       {/* Service Section Start */}
-      <Service />
+      <Service userData={data} />
       {/* Service Section End */}
       {/* Experience Section Start */}
       <Experience userData={data} />
