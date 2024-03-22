@@ -59,18 +59,20 @@ const Contact = ({ userData }) => {
               call between 9:00 a.m. and 8:00 p.m. ET, Monday through Friday
             </p>
             <ul className="contact-social wow fadeInUp">
-              {socialHandle.map((socialMedia, index) => (
-                <li key={socialMedia._id}>
-                  <a href={socialMedia.url}>
-                    <img
-                      src={socialMedia.image.url}
-                      alt="social_media"
-                      key={socialMedia.image.public_id}
-                      style={{ height: "2em" }}
-                    />
-                  </a>
-                </li>
-              ))}
+              {socialHandle.map((socialMedia, index) =>
+                socialMedia.enabled ? (
+                  <li key={socialMedia._id}>
+                    <a href={socialMedia.url}>
+                      <img
+                        src={socialMedia.image.url}
+                        alt="social_media"
+                        key={socialMedia.image.public_id}
+                        style={{ height: "2em" }}
+                      />
+                    </a>
+                  </li>
+                ) : null
+              )}
             </ul>
           </div>
           {/* Contact right */}

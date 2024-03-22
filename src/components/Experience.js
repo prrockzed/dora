@@ -19,28 +19,30 @@ const Experience = ({ userData }) => {
           <h2>My Experience Area</h2>
         </div>
         <div className="experience-items wow fadeInUp">
-          {[...Array(exp.length)].map((_, index) => (
-            <div className="experience-item" key={exp[index]._id}>
-              <div className="experience-info">
-                <p>
-                  {exp[index].name}{" "}
-                  <img
-                    src={exp[index].image.url}
-                    alt="image"
-                    style={{ height: "0.8em", marginLeft: "0.5em" }}
-                    key={exp[index].image._id}
-                  />
-                </p>
-                <p>{exp[index].percentage}%</p>
+          {[...Array(exp.length)].map((_, index) =>
+            exp[index].enabled ? (
+              <div className="experience-item" key={exp[index]._id}>
+                <div className="experience-info">
+                  <p>
+                    {exp[index].name}{" "}
+                    <img
+                      src={exp[index].image.url}
+                      alt="image"
+                      style={{ height: "0.8em", marginLeft: "0.5em" }}
+                      key={exp[index].image._id}
+                    />
+                  </p>
+                  <p>{exp[index].percentage}%</p>
+                </div>
+                <div
+                  className="progress-line"
+                  data-percent={`${exp[index].percentage}%`}
+                >
+                  <span />
+                </div>
               </div>
-              <div
-                className="progress-line"
-                data-percent={`${exp[index].percentage}%`}
-              >
-                <span />
-              </div>
-            </div>
-          ))}
+            ) : null
+          )}
         </div>
       </div>
     </section>
