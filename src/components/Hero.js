@@ -10,6 +10,8 @@ const Hero = ({ userData }) => {
             <span>Hi, I'm</span>
             <h1>{about.name}</h1>
             <h3>{about.title}</h3>
+            <br />
+            <h4>Username: {userData.data.username}</h4>
             <p>{about.subTitle}</p>
             <p>{about.description}</p>
             <div className="hero-btn-container">
