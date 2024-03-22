@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 const PortfolioIsotope = dynamic(() => import("./PortfolioIsotope"), {
   ssr: false,
 });
-const Works = () => {
+const Works = ({ userData }) => {
   return (
     <section className="works-section" id="works">
       <div className="container">
@@ -12,7 +12,7 @@ const Works = () => {
           <h2>My Amazing Works</h2>
         </div>
         {/* Work Isotope */}
-        <PortfolioIsotope />
+        <PortfolioIsotope userData={userData} />
       </div>
     </section>
   );
