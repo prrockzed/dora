@@ -56,7 +56,18 @@ const Service = ({ userData }) => {
                   </span>
                   <h4>{service.name}</h4>
                   <p>{service.desc}</p>
-                  <p>
+                  <p
+                    style={{
+                      paddingTop:
+                        service.desc.length < 30
+                          ? "2.5rem"
+                          : service.desc.length < 60
+                          ? "1.5rem"
+                          : service.desc.length < 90
+                          ? "0.5rem"
+                          : "0",
+                    }}
+                  >
                     <b>Price:</b> {service.charge}
                   </p>
                 </div>
