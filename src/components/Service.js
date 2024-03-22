@@ -41,38 +41,40 @@ const Service = ({ userData }) => {
             className="swiper services-cont wow fadeInUp"
           >
             {" "}
-            {serviceData.map((service, i) => (
-              <SwiperSlide className="swiper-slide" key={i}>
-                <div className="service-item">
-                  <span
-                    className={`service-item-logo service-item-logo-cont-${service._id}`}
-                  >
-                    <img
-                      src={service.image.url}
-                      style={{ height: "6em" }}
-                      alt="service"
-                      key={service.image.public_id}
-                    />
-                  </span>
-                  <h4>{service.name}</h4>
-                  <p>{service.desc}</p>
-                  <p
-                    style={{
-                      paddingTop:
-                        service.desc.length < 30
-                          ? "2.5rem"
-                          : service.desc.length < 60
-                          ? "1.5rem"
-                          : service.desc.length < 90
-                          ? "0.5rem"
-                          : "0",
-                    }}
-                  >
-                    <b>Price:</b> {service.charge}
-                  </p>
-                </div>
-              </SwiperSlide>
-            ))}
+            {serviceData.map((service, i) =>
+              service.enabled ? (
+                <SwiperSlide className="swiper-slide" key={i}>
+                  <div className="service-item">
+                    <span
+                      className={`service-item-logo service-item-logo-cont-${service._id}`}
+                    >
+                      <img
+                        src={service.image.url}
+                        style={{ height: "6em" }}
+                        alt="service"
+                        key={service.image.public_id}
+                      />
+                    </span>
+                    <h4>{service.name}</h4>
+                    <p>{service.desc}</p>
+                    <p
+                      style={{
+                        paddingTop:
+                          service.desc.length < 30
+                            ? "2.5rem"
+                            : service.desc.length < 60
+                            ? "1.5rem"
+                            : service.desc.length < 90
+                            ? "0.5rem"
+                            : "0",
+                      }}
+                    >
+                      <b>Price:</b> {service.charge}
+                    </p>
+                  </div>
+                </SwiperSlide>
+              ) : null
+            )}
           </Swiper>
         </div>
       </div>
