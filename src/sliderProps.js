@@ -70,7 +70,7 @@ export const doraSlider = {
     breakpoints: {
       // when window width is >= 1024px
       1400: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 30,
       },
     },
