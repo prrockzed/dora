@@ -1,7 +1,29 @@
 import Isotope from "isotope-layout";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { DoraContext } from "../Context";
-const PortfolioIsotope = () => {
+
+const PortfolioIsotope = ({ userData }) => {
+  const work = userData.data.projects;
+
+  work.sort((a, b) => {
+    if (a.sequence === b.sequence) {
+      return a._id.localeCompare(b._id);
+    } else {
+      return a.sequence - b.sequence;
+    }
+  });
+
+  const workSize = Math.ceil(work.length / 5);
+
+  const [work1, work2, work3, work4, work5] = [
+    work.slice(0, 3),
+    work.slice(3, 6),
+    work.slice(6, 9),
+    work.slice(9, 12),
+    work.slice(12, 15),
+  ];
+  console.log(work1);
+
   // Isotope
   const isotope = useRef();
   const [filterKey, setFilterKey] = useState("*");
@@ -90,48 +112,52 @@ const PortfolioIsotope = () => {
       {/* work isotope items */}
       <div className="works-row wow fadeInUp">
         {/* Youtube */}
-        <div className="works-col youtube">
-          <a href="//www.youtube.com/embed/B-ytMSuwbf8?autoplay=1">
-            <img src="/images/works/1.png" alt="dora_img" />
-          </a>
-        </div>
+        {work1.map((project, i) => (
+          <div className="works-col youtube">
+            <a href="//www.youtube.com/embed/B-ytMSuwbf8?autoplay=1">
+              <img src={project.image.url} alt="dora_img" />
+            </a>
+          </div>
+        ))}
         {/* Vimeo */}
-        <div className="works-col vimeo">
-          <a href="//player.vimeo.com/video/132528823?autoplay=1">
-            <img src="/images/works/2.png" alt="dora_img" />
-          </a>
-        </div>
+        {work2.map((project, i) => (
+          <div className="works-col vimeo">
+            <a href="//player.vimeo.com/video/132528823?autoplay=1">
+              <img src={project.image.url} alt="dora_img" />
+            </a>
+          </div>
+        ))}
         {/* Details */}
-        <div className="works-col details">
-          <a
-            href="#"
-            className="details-item"
-            onClick={(e) => {
-              e.preventDefault();
-              portfolio_modal_show(true);
-            }}
-          >
-            <img src="/images/works/4.png" alt="dora_img" />
-          </a>
-        </div>
+        {work3.map((project, i) => (
+          <div className="works-col details">
+            <a
+              href="#"
+              className="details-item"
+              onClick={(e) => {
+                e.preventDefault();
+                portfolio_modal_show(true);
+              }}
+            >
+              <img src={project.image.url} alt="dora_img" />
+            </a>
+          </div>
+        ))}
         {/* Popup */}
-        <div className="works-col popup">
-          <a href="/images/works/5.png">
-            <img src="/images/works/5.png" alt="dora_img" />
-          </a>
-        </div>
+        {work4.map((project, i) => (
+          <div className="works-col popup">
+            <a href="/images/works/5.png">
+              <img src={project.image.url} alt="dora_img" />
+            </a>
+          </div>
+        ))}
         {/* Soundcloud */}
-        <div className="works-col soundcloud">
-          <a href="https://w.soundcloud.com/player/?visual=true&url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F159967086&show_artwork=true&maxwidth=1020&maxheight=1000&auto_play=1">
-            <img src="/images/works/3.png" alt="dora_img" />
-          </a>
-        </div>
-        {/* Popup */}
-        <div className="works-col popup">
-          <a href="/images/works/6.png">
-            <img src="/images/works/6.png" alt="dora_img" />
-          </a>
-        </div>
+        {work5.map((project, i) => (
+          <div className="works-col soundcloud">
+            <a href="https://w.soundcloud.com/player/?visual=true&url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F159967086&show_artwork=true&maxwidth=1020&maxheight=1000&auto_play=1">
+              <img src={project.image.url} alt="dora_img" />
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   );
